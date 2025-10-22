@@ -6,6 +6,15 @@ import pyperclip
 import keyboard
 from notifypy import Notify
 from pathlib import Path
+import sys
+
+## Used to access temporary files from .exe cache
+base_path = getattr(sys, "_MEIPASS", os.path.dirname(os.path.abspath(__file__)))
+## Get direct file path's
+icon_path = os.path.join(base_path, "notification_media", "checkmark.png")
+audio_path = os.path.join(base_path, "notification_media", "sound_cue.wav")
+tesseract_path = os.path.join(base_path, "Tesseract-OCR", "tesseract.exe")
+
 
 ## Get folder for screenshots
 screenshots_folder = str(Path.home() / "Pictures" / "Screenshots")
@@ -14,11 +23,11 @@ screenshots_folder = str(Path.home() / "Pictures" / "Screenshots")
 notification = Notify()
 notification.title = "ImageToText"
 notification.message = "Finished copying image text"
-notification.icon = r"notification_media\checkmark.png"
-notification.audio = r"notification_media\sound_cue.wav"
+notification.icon = icon_path
+notification.audio = audio_path
 
 ## Embed tesseract executable in folder
-pytesseract.pytesseract.tesseract_cmd = r"Tesseract-OCR\tesseract.exe"
+pytesseract.pytesseract.tesseract_cmd = tesseract_path
 
 ## Copy Screenshot Event
 def Copy_Screenshot():
