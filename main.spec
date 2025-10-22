@@ -4,8 +4,8 @@
 a = Analysis(
     ['main.py'],
     pathex=[],
-    binaries=[],
-    datas=[],
+    binaries=[('Tesseract-OCR/*', 'Tesseract-OCR')],
+    datas=[('notification_media/*', 'notification_media')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},

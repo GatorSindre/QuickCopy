@@ -1,2 +1,3 @@
 pytesseract
 pyperclip
+notify_py
