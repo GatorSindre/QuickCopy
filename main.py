@@ -7,6 +7,8 @@ import keyboard
 from notifypy import Notify
 from pathlib import Path
 import sys
+import pyautogui
+import time
 
 ## Used to access temporary files from .exe cache
 base_path = getattr(sys, "_MEIPASS", os.path.dirname(os.path.abspath(__file__)))
@@ -55,7 +57,15 @@ def Copy_Screenshot():
 
 ## Run in background with low cpu using an event
 
+def Write_Bypass():
+    time.sleep(1)
+
+    copied_text = pyperclip.paste()
+
+    pyautogui.write(copied_text, interval=0.02)
+
 keyboard.add_hotkey("ctrl+shift+alt+p", Copy_Screenshot)
+keyboard.add_hotkey("ctrl+shift+alt+o", Write_Bypass)
 
 print("CopyPy Initialized")
 

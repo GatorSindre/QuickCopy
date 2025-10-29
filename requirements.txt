@@ -1,3 +1,4 @@
 pytesseract
 pyperclip
 notify_py
+pyautogui
